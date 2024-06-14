@@ -1,4 +1,4 @@
-*{
+*,*::before,*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,19 +6,23 @@
     text-decoration: none;
 }
 body {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     line-height: 1.5;
     font-weight: bold;
 }
+.container{
+    max-width: 1296px;
+    margin: 0 auto;
+}
 header{
-    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
+    border-bottom: 2px solid rgba(135, 132, 132, 0.052);
 }
 header .menu{
     opacity: 0;
+    width: 90px;
 }
 header .list{
     display: flex;
@@ -76,7 +80,6 @@ header .list .list-text a{
 }
 .title .title-content{
     position: relative;
-    width: 670px;
     height: 192px;
     display: flex;
     justify-content: center;
@@ -121,12 +124,12 @@ header .list .list-text a{
 }
 .title .title-content .quote-right{
     position: absolute;
-    right: 4%;
+    right: -14%;
     bottom: 0;
 }
 .title .title-content .quote-left{
     position: absolute;
-    left: 4%;
+    left: -14%;
     top: 0;
 }
 .experience{
@@ -138,15 +141,14 @@ header .list .list-text a{
 .experience .experience-left{
     padding: 5px;
 }
-.experience .experience-left h4,.experience-right h4{
+.experience .experience-left h3,.experience-right h3{
     font-size: 16px;
-    line-height: 24px;
     font-weight: 400;
     color: #5b5b5b;
     margin-bottom: 10px;
     position: relative;
 }
-.experience .experience-left h4::after{
+.experience .experience-left h3::after{
     content: "";
     width: 24px;
     border: 2px;
@@ -155,7 +157,7 @@ header .list .list-text a{
     left: 46%;
     bottom: -4px;
 }
-.experience .experience-right h4::after{
+.experience .experience-right h3::after{
     content: "";
     width: 24px;
     border: 2px;
@@ -172,35 +174,32 @@ header .list .list-text a{
 }
 
 /* main */
-main{
-    margin: 0 auto;
-}
 .work-area {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 80px 24px;
     max-width: 1000px;
     margin: 0 auto;
 }
 .work-area .work {
-    width: 48%;
+    width: calc(50% - 12px);
     display: flex;
     flex-direction: column;
 }
 .work-area .work img {
-    margin-bottom: 10px;
     border-radius: 6px;
 }
 .work-area .work h2 {
     font-weight: bold;
     font-size: 20px;
-    margin: 10px;
 }
 .work-area .work p {
     font-size: 12px;
     color: grey;
-    margin: 0 10px 10px 10px;
+}
+.work-area .work-body{
+    padding: 16px 16px 0;
 }
 .work-area .cards {
     display: flex;
@@ -213,8 +212,9 @@ main{
 }
 
 .pagination {
-    display: inline-block;
-    margin: 20px 0 60px;
+    display: flex;
+    margin: 50px 0 60px;
+    justify-content: center;
 }
 .pagination a {
     color: black;
@@ -231,6 +231,9 @@ main{
 .footer{
     background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
     display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* footer */
@@ -289,8 +292,11 @@ footer .right .right-area ul li:hover a{
 
 /* RWD */
 @media screen and (max-width: 768px ){ 
+    .container{
+        padding: 0 12px;
+    }
     header {
-        height: 10vh;
+        height: auto;
         max-width: 100%;
         justify-content: space-between;
         padding: 0 10px;
@@ -300,9 +306,11 @@ footer .right .right-area ul li:hover a{
     }
     header .menu{
         opacity: 1;
+        width: auto;
     }
     .title .title-content{
         flex-direction: column;
+        padding: 37.5px;
     }
     .title .title-content .title-content-text{
         max-width: 320px;
@@ -316,11 +324,11 @@ footer .right .right-area ul li:hover a{
     
     .experience{
         flex-direction: column;
-        max-width: 320px;
+        max-width: 235px
     }
 
     .work-area .work{
-        min-width: 100%;
+        width: 100%;
         padding: 10px;
     }
 
@@ -330,11 +338,14 @@ footer .right .right-area ul li:hover a{
     .footer{
         flex-direction: column;
         align-items: center;
+        background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true");
+    }
+    .footer .right .right-area{
+        width: 306px;
     }
     .footer .left{
         margin-top: 50px;
-        min-width:100% ;
-    }
+        width:100% ;    }
     .footer .left .left-text{
         text-align: center;
     }
